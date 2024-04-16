@@ -20,4 +20,4 @@ dependencies:
   - pytorch::torchvision=0.12.0
   - pytorch::torchdata=0.3.0
   - pip:
-    - -r requirements.txt
+      - -r requirements.txt
