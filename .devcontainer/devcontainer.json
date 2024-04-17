@@ -37,7 +37,8 @@
 				"ms-python.vscode-pylance",
 				"GitHub.copilot",
 				"GitHub.copilot-chat",
-				"yzhang.markdown-all-in-one"
+				"yzhang.markdown-all-in-one",
+				"ms-toolsai.jupyter"
 			]
 		}
 	},
