@@ -4,7 +4,9 @@
 		"context": "..",
 		"dockerfile": "Dockerfile",
 		"args": {
-			"NODE_VERSION": "lts/*"
+			"NODE_VERSION": "lts/*",
+			"DOCKER_CLIENT_TIMEOUT": "",
+			"COMPOSE_HTTP_TIMEOUT": ""
 		}
 	},
 	"hostRequirements": {
@@ -12,11 +14,8 @@
 		"memory": "8gb",
 		"storage": "50gb"
 	},
-	// Configure tool-specific properties.
 	"customizations": {
-		// Configure properties specific to VS Code.
 		"vscode": {
-			// Set *default* container specific settings.json values on container create.
 			"settings": {
 				"python.defaultInterpreterPath": "/opt/conda/bin/python",
 				"python.linting.enabled": true,
@@ -31,21 +30,13 @@
 				"python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
 				"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint"
 			},
-			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"ms-python.python",
-				"ms-python.vscode-pylance",
-				"GitHub.copilot",
-				"GitHub.copilot-chat",
-				"yzhang.markdown-all-in-one",
-				"ms-toolsai.jupyter"
+				"ms-python.vscode-pylance"
 			]
 		}
 	},
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "python --version",
-	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"forwardPorts": [],
+	"postCreateCommand": "conda update conda -y && conda env create -f environment.yml",
 	"remoteUser": "vscode"
 }
