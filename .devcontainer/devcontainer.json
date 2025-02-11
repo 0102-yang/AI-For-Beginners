@@ -1,13 +1,8 @@
 {
-	"name": "Miniconda (Python 3)",
+	"name": "AI For Beginners with Miniconda (Python 3)",
+	"image": "mcr.microsoft.com/devcontainers/miniconda:1.1.1-3",
 	"build": {
-		"context": "..",
-		"dockerfile": "Dockerfile",
-		"args": {
-			"NODE_VERSION": "lts/*",
-			"DOCKER_CLIENT_TIMEOUT": "",
-			"COMPOSE_HTTP_TIMEOUT": ""
-		}
+		"context": ".."
 	},
 	"hostRequirements": {
 		"cpus": 4,
@@ -32,11 +27,12 @@
 			},
 			"extensions": [
 				"ms-python.python",
-				"ms-python.vscode-pylance"
+				"ms-python.vscode-pylance",
+				"Fooxly.themeswitch"
 			]
 		}
 	},
 	"forwardPorts": [],
-	"postCreateCommand": "conda update conda -y && conda env create -f environment.yml",
+	"postCreateCommand": "bash -c .devcontainer/setup.sh",
 	"remoteUser": "vscode"
 }
